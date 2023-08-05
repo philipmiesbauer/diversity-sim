@@ -12,5 +12,5 @@ Written by Philip Miesbauer
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-python3 -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt > "$DIR/requirements.log"
 python3 "$DIR/src/simulate.py"

@@ -2,6 +2,7 @@
 import random
 from wonderwords import RandomWord
 import names
+import statistics
 
 randomWord = RandomWord()
 
@@ -46,3 +47,12 @@ class Individual:
             self.name == __value.name and
             self.attributes == __value.attributes
         )
+
+    def get_diversity_quotient(self) -> float:
+        # Other tries were
+        # - max(map(lambda x: x.probability, self.attributes))
+        # - min(map(lambda x: x.probability, self.attributes))
+        # - sum(map(lambda y: y.probability, self.attributes))
+        return statistics.mean(map(lambda y: y.probability, self.attributes))
+
+
